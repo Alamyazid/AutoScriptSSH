@@ -1,0 +1,115 @@
+#!/bin/bash
+# Created by http://www.embex.online
+# Remodified by Embex
+
+if [[ $USER != 'root' ]]; then
+	echo "Oops! root privileges needed"
+	exit
+fi
+while :
+do
+	clear
+	echo " "
+	echo " "
+	echo "-----------------------------------------"
+	echo "         Update Menu Script       "
+	echo "-----------------------------------------"
+	echo "This will update the script if anything was changed"
+	echo "in Embex's autoscript server"
+	echo "Would you like to proceed?"
+	echo " "
+	echo "     [ MENU ]"
+	echo "1. Update Now"
+	echo "2. Go Back"
+	read -p "Choose from 1 to 2: " option2
+	case $option2 in
+		1)
+		clear
+		rm premiummenu.zip
+		clear
+		echo "Getting update from Embex's server..."
+		sleep 2
+		clear
+		echo "UPDATE FOUND! premiummenu.zip from the server"
+		sleep 2
+		clear
+		rm -rf /usr/local/bin
+		clear
+		echo "Deleting the old files..."
+		sleep 2
+		clear
+		echo "Deleting : 2.39%"
+		sleep 1
+		clear
+		echo "Deleting : 18.22%"
+		cd /usr/local
+		sleep 1
+		clear
+		echo "Deleting : 44.07%"
+		sleep 1
+		clear
+		echo "Deleting : 85.72%"
+		mkdir bin
+		sleep 1
+		clear
+		echo "Deleting : 100%"
+		cd bin
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Downloading started!"
+		echo ""
+		sleep 2
+		wget https://raw.githubusercontent.com/alamyazid/AutoScriptSSH/main/premiummenu.zip
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Downloaded successfully!"
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Patching..."
+		echo ""
+		sleep 2
+		unzip premiummenu.zip
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Patching... OK!"
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Setting Permission..."
+		chmod +x /usr/local/bin/*
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Setting Permission... OK!"
+		cd /usr/local/bin
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Finalizing..."
+		rm premiummenu.zip
+		sleep 1
+		clear
+		echo "=======================PATCHING THE NEW UPDATE======================="
+		echo ""
+		echo "Finalizing... OK!"
+		sleep 1
+		clear
+		cd
+		success
+		;;
+		2)
+		clear
+		exit
+		;;
+	esac
+done
+cd
